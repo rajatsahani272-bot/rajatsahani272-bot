@@ -198,13 +198,7 @@ I'm currently exploring **Artificial Intelligence and Machine Learning**, with a
 
 <div align="center">
 
-<a href="https://github.com/rajatsahani272-bot">
-<img src="https://github-readme-stats.vercel.app/api?username=rajatsahani272-bot&show_icons=true&theme=tokyonight&hide_border=true&cache_seconds=86400" height="170"/>
-</a>
-
-<a href="https://github.com/rajatsahani272-bot">
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rajatsahani272-bot&layout=compact&theme=tokyonight&hide_border=true&langs_count=8&cache_seconds=86400" height="170"/>
-</a>
+<img src="./metrics.svg" alt="GitHub Metrics" width="90%"/>
 
 </div>
 
