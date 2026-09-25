@@ -198,17 +198,17 @@ I'm currently exploring **Artificial Intelligence and Machine Learning**, with a
 
 <div align="center">
 
-<img src="./metrics.svg" alt="GitHub Metrics" width="90%"/>
+<img src="./metrics.svg" alt="GitHub Stats" width="90%"/>
 
 </div>
 
 ---
 
-## 🔥 GitHub Streak
+## 🔥 GitHub Activity
 
 <div align="center">
 
-<img src="https://streak-stats.demolab.com/?user=rajatsahani272-bot&theme=tokyonight&hide_border=true"/>
+<img src="./contribution.svg" alt="GitHub Contribution Calendar" width="90%"/>
 
 </div>
 
@@ -218,37 +218,21 @@ I'm currently exploring **Artificial Intelligence and Machine Learning**, with a
 
 <div align="center">
 
-<img src="https://github-profile-trophy.vercel.app/?username=rajatsahani272-bot&theme=tokyonight&no-frame=true&no-bg=true&margin-w=4&row=2&column=4"/>
+<img src="./profile/trophy.svg" alt="GitHub Trophies" width="90%"/>
 
 </div>
 
 ---
 
-## 📈 Contribution Activity
+## 🐍 Contribution Graph
 
 <div align="center">
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=rajatsahani272-bot&bg_color=0D1117&color=00D9FF&line=00D9FF&point=FFFFFF&area=true&hide_border=true"/>
-
-</div>
-
----
-
-## ✍️ Random Dev Quote
-
-<div align="center">
-
-<img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight"/>
-
-</div>
-
----
-
-## 💻 Top Contributed Repositories
-
-<div align="center">
-
-<img src="https://github-contributor-stats.vercel.app/api?username=rajatsahani272-bot&limit=5&theme=dark&combine_all_yearly_contributions=true"/>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./profile/github-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./profile/github-snake.svg">
+  <img src="./profile/github-snake.svg" alt="GitHub Contribution Snake" width="90%">
+</picture>
 
 </div>
 
