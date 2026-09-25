@@ -1,22 +1,25 @@
-name: GitHub Profile Metrics
+name: Update GitHub Profile
 
 on:
-  schedule:
-    - cron: "0 0 * * *"
-  workflow_dispatch:
   push:
     branches:
       - main
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  metrics:
+  update-profile:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Generate GitHub Profile Metrics
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate GitHub Metrics
         uses: lowlighter/metrics@latest
         with:
           filename: metrics.svg
@@ -30,5 +33,52 @@ jobs:
           plugin_languages_limit: 8
           plugin_languages_sections: most-used
           plugin_languages_details: bytes-size, percentage
-          plugin_languages_threshold: 0%
-          plugin_languages_indepth: yes
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+          output_action: none
+
+      - name: Copy Metrics
+        run: cp /metrics_renders/metrics.svg ./metrics.svg
+
+      - name: Generate Contribution Calendar
+        uses: lowlighter/metrics@latest
+        with:
+          filename: contribution.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          user: rajatsahani272-bot
+          base: ""
+          plugin_calendar: yes
+          plugin_calendar_limit: 1
+          output_action: none
+
+      - name: Copy Contribution Calendar
+        run: cp /metrics_renders/contribution.svg ./contribution.svg
+
+      - name: Generate GitHub Trophy
+        uses: soulteary/github-profile-trophy-action@v1.0.0
+        with:
+          options: 'username=rajatsahani272-bot&theme=tokyonight&column=7&row=2&margin-w=12&margin-h=12&no-frame=true&no-bg=true'
+          path: profile/trophy.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate Contribution Snake
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: rajatsahani272-bot
+          outputs: |
+            dist/github-snake.svg
+            dist/github-snake-dark.svg?palette=github-dark
+
+      - name: Copy Snake
+        run: |
+          mkdir -p profile
+          cp dist/github-snake.svg profile/github-snake.svg
+          cp dist/github-snake-dark.svg profile/github-snake-dark.svg
+
+      - name: Commit Generated Assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add metrics.svg contribution.svg profile/trophy.svg profile/github-snake.svg profile/github-snake-dark.svg
+          git diff --cached --quiet || git commit -m "Update GitHub profile assets"
+          git push
